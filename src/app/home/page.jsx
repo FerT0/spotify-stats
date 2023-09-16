@@ -2,11 +2,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { getTokenFromUrl } from "./functions/GetTokenFromUrl";
-import { getUser } from "./functions/GetUser";
 import { logIn } from "./functions/LogIn";
 import Loading from "./components/loadingData/Loading";
-
-import Profile from "./components/profile/Profile";
+import Navbar from "./components/navbar/Navbar";
 
 export default function Home() {
   const [isLoggingIn, setIsLoggingIn] = useState(true);
@@ -34,10 +32,14 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex justify-center items-center flex-col h-full">
-        {isLoggingIn && <Loading />}
-        {!isLoggingIn && <Profile />}
-      </div>
+      {isLoggingIn && <Loading />}
+      {!isLoggingIn && (
+        <section className="h-screen">
+          <div className="">
+            <Navbar />
+          </div>
+        </section>
+      )}
     </>
   );
 }

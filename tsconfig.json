@@ -30,7 +30,10 @@
     "src/app/api/login/route.js",
     "src/app/home/page.jsx",
     "src/app/home/functions/GetTokenFromUrl.js",
-    "src/app/home/components/profile/Profile.jsx"
+    "src/app/home/components/profile/Profile.tsx",
+    "src/app/home/components/playlists/Playlists.jsx",
+    "src/app/home/components/top artists/TopArtists.jsx",
+    "src/app/home/components/top tracks/TopTracks.jsx"
   ],
   "exclude": ["node_modules"]
 }
