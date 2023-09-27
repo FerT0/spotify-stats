@@ -1,0 +1,7 @@
+.responsive_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-gap: 1rem;
+  justify-content: space-between;
+  margin: 0 auto;
+}

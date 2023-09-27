@@ -8,11 +8,20 @@ import Navbar from "./components/navbar/Navbar";
 
 export default function Home() {
   const [isLoggingIn, setIsLoggingIn] = useState(true);
+  const [term, setTerm] = useState("short term");
+  useEffect(() => {
+    console.log("change term");
+  }, [term]);
   let access_token;
 
   const fetchData = async () => {
     const token = getTokenFromUrl();
     access_token = token.access_token;
+  };
+
+  const pull_term = (data) => {
+    console.log(data);
+    setTerm(data);
   };
 
   useEffect(() => {
@@ -36,7 +45,7 @@ export default function Home() {
       {!isLoggingIn && (
         <section className="h-screen">
           <div className="">
-            <Navbar />
+            <Navbar func={pull_term} currentTerm={term} />
           </div>
         </section>
       )}

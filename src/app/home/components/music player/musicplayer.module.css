@@ -1,0 +1,106 @@
+.playerBar {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.75rem;
+  gap: 0.25rem;
+}
+
+.progressBar {
+  --bar-bg: hsl(var(--nextui-default-300) / 0.5);
+  --seek-before-width: 0;
+  --tw-bg-opacity: 1;
+  --seek-before-color: hsl(
+    var(--nextui-default-800) /
+      var(--nextui-default-800-opacity, var(--tw-bg-opacity))
+  );
+  --knobby: hsl(
+    var(--nextui-default-400) /
+      var(--nextui-default-400-opacity, var(--tw-bg-opacity))
+  );
+  --selectedKnobby: hsl(
+    var(--nextui-default-100) /
+      var(--nextui-default-100-opacity, var(--tw-bg-opacity))
+  );
+  transition: all 120ms ease;
+
+  appearance: none;
+  background: var(--bar-bg);
+  z-index: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+  width: 100%;
+  outline: none;
+  height: 0.25rem;
+}
+
+.progressBar::-webkit-slider-runnable-track {
+  background: var(--bar-bg);
+  border-radius: 10px;
+  width: 100%;
+  outline: none;
+  height: 11px;
+}
+
+.progressBar::-moz-range-track {
+  background: var(--bar-bg);
+  border-radius: 10px;
+  width: 100%;
+  outline: none;
+  height: 11px;
+}
+
+.progressBar::-moz-focus-outer {
+  border: 0;
+}
+
+.progressBar::before {
+  content: "";
+  height: 0.25rem;
+  width: var(--seek-before-width);
+  background-color: var(--seek-before-color);
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.progressBar::-moz-range-progress {
+  background-color: var(--seek-before-color);
+  border-radius: 9999px;
+  height: 0.25rem;
+}
+
+.progressBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 3px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--knobby);
+  position: relative;
+  margin: -2px 0 0 0;
+  z-index: 4;
+  box-sizing: border-box;
+}
+
+.progressBar:active::-webkit-slider-thumb {
+  background: var(--selectedKnobby);
+}
+
+.progressBar::-moz-range-thumb {
+  height: 15px;
+  width: 3px;
+  border-radius: 50%;
+  border: transparent;
+  background-color: var(--knobby);
+  position: relative;
+  z-index: 4;
+  box-sizing: border-box;
+  transition-duration: 500ms;
+}
+
+.progressBar:active::-moz-range-thumb {
+  background: var(--selectedKnobby);
+}
